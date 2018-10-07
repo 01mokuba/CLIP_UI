@@ -1,1 +1,2 @@
 # UI_CLIP
+- CLIPのUIです
