@@ -1,0 +1,101 @@
+/*@import url(https://fonts.googleapis.com/earlyaccess/mplus1p.css);
+*/
+*{
+  margin: 0;
+  padding: 0;
+}
+
+input, button, textarea, select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  border-radius: 0;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+@font-face {
+    font-family: 'GENJ-Light';
+    font-style: normal;
+    font-weight: 200;
+    src: url('../fonts/GenJyuuGothicX-Light.eot');
+    src: url('../fonts/GenJyuuGothicX-Light.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GenJyuuGothicX-Light.ttf') format('truetype'),
+    url('../fonts/GenJyuuGothicX-Light.woff') format('woff');
+}
+@font-face {
+    font-family: 'GENJ-Medium';
+    font-style: normal;
+    font-weight: 500;
+    src: url('../fonts/GenJyuuGothicX-Medium.eot');
+    src: url('../fonts/GenJyuuGothicX-Medium.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GenJyuuGothicX-Medium.ttf') format('truetype'),
+    url('../fonts/GenJyuuGothicX-Medium.woff') format('woff');
+}
+@font-face {
+    font-family: 'GENJ-Heavy';
+    font-style: normal;
+    font-weight: 900;
+    src: url('../fonts/GenJyuuGothicX-Heavy.eot');
+    src: url('../fonts/GenJyuuGothicX-Heavy.eot?#iefix') format('embedded-opentype'),
+    url('../fonts/GenJyuuGothicX-Heavy.ttf') format('truetype'),
+    url('../fonts/GenJyuuGothicX-Heavy.woff') format('woff');
+}
+
+body{
+  margin: 0 0 0 0 ;
+ }
+
+.main{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgb(252,207,49,0.5)), url(../image/reports.jpg);
+  background-size: auto 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+/*  font-family: 'M PLUS 1p', sans-serif;
+*/}
+
+.main-border{
+  height: 94.5%;
+  width: 97%;
+  border: 3px solid white;
+  color: white;
+  position:  relative;
+}
+
+h1{
+  font-family: "GENJ-Heavy";
+  font-size: 64px;
+  text-align: center;
+  text-decoration: underline;
+  padding-top: 150px;
+}
+
+input{
+  height: 50px;
+  width: 70%;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  box-shadow: 0px, 3px, 6px;
+}
+
+h2{
+  font-family: "GENJ-Heavy";
+  font-size: 36px;
+  text-align: center;
+}
+
+a{
+  display: block;
+  font-size: 28px;
+  font-family: "GENJ-Heavy";
+  color: white;
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
