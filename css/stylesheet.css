@@ -1,5 +1,3 @@
-/*@import url(https://fonts.googleapis.com/earlyaccess/mplus1p.css);
-*/
 *{
   margin: 0;
   padding: 0;
@@ -50,7 +48,7 @@ body{
 
 .main{
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgb(252,207,49,0.5)), url(../image/reports.jpg);
   background-size: auto 100%;
   display: flex;
@@ -59,8 +57,8 @@ body{
 }
 
 .main-border{
-  height: 94.5%;
-  width: 97%;
+  height: 94.5vh;
+  width: 97vw;
   border: 3px solid white;
   color: white;
   position: relative;
@@ -73,36 +71,63 @@ body{
   display: block;
 }
 
+.main-search{
+  display: flex;
+  justify-content: center;
+}
+
+.filter{
+  font-family: "GENJ-Heavy";
+  color: #747474;
+  height: 8vh;
+  width: 15vw;
+  background-color: #D9D9D9;
+  border-radius: 0 15px 15px 0 ;
+  box-shadow: 2px 2px 3px #999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.filter p{
+  font-size: 2vw;
+  margin: 0 0.2vw 0 0.6vw;
+}
+
+.filter img{
+  height: 3vw;
+  margin: 0 0.2vw 0 0.6vw;
+}
+
 h1{
   font-family: "GENJ-Heavy";
-  font-size: 64px;
+  font-size: 5vw;
   text-align: center;
   text-decoration: underline;
   margin-bottom: 10px;
 }
 
 input{
-  height: 50px;
-  width: 70%;
+  height: 8vh;
+  width: 55vw;
   display: block;
-  margin: 0 auto;
-  border-radius: 15px;
-  box-shadow: 0px, 3px, 6px;
+  border-radius: 15px 0 0 15px;
+  box-shadow: 2px 2px 3px #999;
 }
 
 h2{
   font-family: "GENJ-Heavy";
-  font-size: 36px;
+  font-size: 2.8vw;
   text-align: center;
   margin-top: 10px;
 }
 
 a{
   display: block;
-  font-size: 28px;
+  font-size: 2.5vw;
   font-family: "GENJ-Heavy";
   color: white;
   position: absolute;
-  right: 20px;
-  bottom: 20px;
+  right: 2%;
+  bottom: 2%;
 }
