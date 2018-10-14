@@ -139,11 +139,16 @@ body{
 }
 
 .contents{
-  padding-top: 5vh;
+  padding: 5vh 5vw;
+}
+
+.contents h2{
+  font-family: "GENJ-Heavy";
+  font-size: 3vw;
+  margin-bottom: 2vh;
 }
 
 .cards{
-  width: 90%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
