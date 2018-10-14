@@ -71,12 +71,24 @@ body{
   display: block;
 }
 
-.main-search{
+.search{
   display: flex;
   justify-content: center;
 }
 
-.main-filter{
+.search input{
+  font-family: "GENJ-Medium";
+  font-size: 1.8vw;
+  padding-left: 1vw;
+  height: 8vh;
+  min-height: 50px;
+  width: 55vw;
+  display: block;
+  border-radius: 15px 0 0 15px;
+  box-shadow: 2px 2px 3px #999;
+}
+
+.filter{
   font-family: "GENJ-Heavy";
   color: #747474;
   height: 8vh;
@@ -90,14 +102,13 @@ body{
   justify-content: center;
 }
 
-.main-filter p{
+.filter p{
   font-size: 2vw;
   margin: 0 0.2vw 0 0.6vw;
 }
 
-.main-filter img{
+.filter img{
   height: 3vw;
-
   margin: 0 0.2vw 0 0.6vw;
 }
 
@@ -107,18 +118,6 @@ body{
   text-align: center;
   text-decoration: underline;
   margin-bottom: 10px;
-}
-
-.main input{
-  font-family: "GENJ-Medium";
-  font-size: 1.8vw;
-  padding-left: 1vw;
-  height: 8vh;
-  min-height: 50px;
-  width: 55vw;
-  display: block;
-  border-radius: 15px 0 0 15px;
-  box-shadow: 2px 2px 3px #999;
 }
 
 .main h2{
@@ -139,6 +138,7 @@ body{
 }
 
 .contents{
+  display: block;
   padding: 5vh 5vw;
 }
 
@@ -176,4 +176,53 @@ body{
   font-size:  1.1vw;
   position: absolute;
   bottom: 3vh;
+}
+
+#header{
+  background: white;
+  height: 12vh;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+#header .header-wrapper{
+  align-items: center;
+  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgb(252,207,49,0.5));
+  display: flex;
+  height: 12vh;
+  width: 100%;
+  z-index: 100;
+}
+
+#header h1{
+  color: white;
+  font-family: "GENJ-Heavy";
+  margin: 0 2vw;
+}
+
+#header a{
+  align-self: flex-end;
+  color: white;
+  font-family: "GENJ-Heavy";
+  font-size: 2vw;
+  margin-bottom: 1vh;
+  margin-left: auto;
+  margin-right: 2vw;
+}
+
+.header-search input{
+  width: 40vw;
+}
+
+.results{
+  padding-top: 16vh;
+}
+
+.result{
+  margin-bottom: 3vh;
+}
+
+.result p{
+  font-family: "GENJ-Light"
 }
