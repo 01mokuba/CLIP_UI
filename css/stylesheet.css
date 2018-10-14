@@ -76,7 +76,7 @@ body{
   justify-content: center;
 }
 
-.filter{
+.main-filter{
   font-family: "GENJ-Heavy";
   color: #747474;
   height: 8vh;
@@ -90,18 +90,18 @@ body{
   justify-content: center;
 }
 
-.filter p{
+.main-filter p{
   font-size: 2vw;
   margin: 0 0.2vw 0 0.6vw;
 }
 
-.filter img{
+.main-filter img{
   height: 3vw;
 
   margin: 0 0.2vw 0 0.6vw;
 }
 
-h1{
+.main h1{
   font-family: "GENJ-Heavy";
   font-size: 5vw;
   text-align: center;
@@ -109,7 +109,7 @@ h1{
   margin-bottom: 10px;
 }
 
-input{
+.main input{
   font-family: "GENJ-Medium";
   font-size: 1.8vw;
   padding-left: 1vw;
@@ -121,14 +121,14 @@ input{
   box-shadow: 2px 2px 3px #999;
 }
 
-h2{
+.main h2{
   font-family: "GENJ-Heavy";
   font-size: 2.8vw;
   text-align: center;
   margin-top: 10px;
 }
 
-a{
+.main a{
   display: block;
   font-size: 2.5vw;
   font-family: "GENJ-Heavy";
@@ -136,4 +136,39 @@ a{
   position: absolute;
   right: 2%;
   bottom: 2%;
+}
+
+.contents{
+  padding-top: 5vh;
+}
+
+.cards{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-content: flex-start;
+}
+
+.card{
+  height: 25vh;
+  width: 15vw;
+  box-shadow: 2px 2px 3px #999;
+  border: solid 0.5px lightgray;
+  padding: 3vh 2vw;
+  position: relative;
+  margin-bottom: 5vh;
+}
+
+.card-title{
+  font-family: "GENJ-Heavy";
+  font-size:  1.3vw;
+}
+
+.card-detail{
+  font-family: "GENJ-Light";
+  font-size:  1.1vw;
+  position: absolute;
+  bottom: 3vh;
 }
