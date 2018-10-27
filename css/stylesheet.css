@@ -215,6 +215,14 @@ body{
   width: 40vw;
 }
 
+#search{
+  display: flex;
+}
+
+#submit{
+  display: none;
+}
+
 .results{
   padding-top: 16vh;
 }

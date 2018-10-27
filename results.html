@@ -4,17 +4,21 @@
   <title>CLIP</title>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
   <header id="header">
     <div class="header-wrapper">
       <h1>CLIP</h1>
       <div class="search header-search">
-        <input type="search" name="">
-        <div class="filter">
-          <p>絞り込み</p>
-          <img src="image/baseline-filter_list-24px.svg" alt="">
-        </div>
+        <form id="search">
+          <input type="text" id="kw" name="">
+          <input type="submit" id="submit" name=""><!-- display: none; で非表示 -->
+          <div class="filter">
+            <p>絞り込み</p>
+            <img src="image/baseline-filter_list-24px.svg" alt="">
+          </div>
+        </form>
       </div>
       <a href="https://www.facebook.com/01mokuba" target="_blank">produced by mokuba</a>
     </div>
@@ -41,56 +45,12 @@
           <p>2018年9月28日</p>
         </div>
       </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-          <p>2018年9月28日</p>
-        </div>
-      </div>
-      <div class="card">
-        <a href="http://www.mlit.go.jp/common/001255667.pdf" class="card-title" target="blank">都市鉄道における利用者ニーズの高度化等に対応した施設整備促進に関する検討会報告書</a>
-        <div class="card-detail">
-          <p>国土交通省</p>
-            <p>2018年9月28日</p>
-        </div>
-      </div>
     </div>
   </div>
 
+<div id="content">
+</div>
+
+<script type="text/javascript" src="js/clip.js"></script>
 </body>
+</html>
