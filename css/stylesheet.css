@@ -49,7 +49,7 @@ body{
 .main{
   height: 100vh;
   width: 100vw;
-  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgb(252,207,49,0.5)), url(../image/reports.jpg);
+  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgba(252,207,49,0.5)), url(../image/reports.jpg);
   background-size: auto 100%;
   display: flex;
   justify-content: center;
@@ -148,7 +148,7 @@ body{
   margin-bottom: 2vh;
 }
 
-#cards, #cards2{
+#cards, #cards2 {
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -188,7 +188,7 @@ body{
 
 #header .header-wrapper{
   align-items: center;
-  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgb(252,207,49,0.5));
+  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgba(252,207,49,0.5));
   display: flex;
   height: 12vh;
   width: 100%;
