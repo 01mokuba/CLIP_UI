@@ -12,6 +12,7 @@ $form.submit(function(event) {
   getResults(kw)
 
 });
+
 var getResults = function(kw){
   console.log(kw);
   var esurl = "https://search-clip-uu6oh7i2l7fon6tlma23e6ax3a.ap-northeast-1.es.amazonaws.com/_search";
@@ -31,7 +32,7 @@ var getResults = function(kw){
         url: esurl,
         type: "POST",
         data: data,
-    timeout: 10000,  // 単位はミリ秒
+        timeout: 10000,  // 単位はミリ秒
 
         // 送信前
         beforeSend: function(xhr, settings) {
@@ -78,6 +79,10 @@ var setCard = function(kw,result){
 
   var article = "<article><h3 class='title'></h3>\
           <p class='text'></p></article>";
+
+
+  $('#numhits').text(numhits);
+  $('#kwResults').text(kw);
 
   for (var i = 0; i < hitsArr.length; i++) {
     var hit = hitsArr[i];
