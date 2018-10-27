@@ -61,39 +61,27 @@ var getResults = function(kw){
     });
 
 }
+
 var setCard = function(kw,result){
-  var content = $("#content").empty();
-
   var numhits = result["hits"]["total"];
-  var hitsArr = result["hits"]["hits"];
   console.log(numhits);
-  console.log(hitsArr);
-  var stat = "<div class='stat'>キーワード:<span class='kw'></span><br>\
-        ヒット数:<span class='numhits'></span></div><br>";
-
-  var statQuery = $(stat);
-  content.append(statQuery);
   console.log(kw);
-  statQuery.find(".kw").html(kw);
-  statQuery.find(".numhits").html(numhits);
-
-  var article = "<article><h3 class='title'></h3>\
-          <p class='text'></p></article>";
-
-
   $('#numhits').text(numhits);
-  $('#kwResults').text(kw);
+  $('#kw').text(kw);
+
+  var hitsArr = result["hits"]["hits"];
+  console.log(hitsArr);
+
+  var cards = $("#cards").empty();
+  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p>国土交通省</p><p>2018年9月28日</p></div></article>";
 
   for (var i = 0; i < hitsArr.length; i++) {
     var hit = hitsArr[i];
     var source = hit["_source"];
     var articleQuery = $(article);
-
-    content.append(articleQuery);
-
+    cards.append(articleQuery);
     console.log(source["title"]);
-    articleQuery.find(".title").html(source["title"]);
-    articleQuery.find(".text").html(source["text"]);
+    articleQuery.find(".card-title").html(source["title"]);
   }
 }
 

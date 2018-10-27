@@ -148,7 +148,7 @@ body{
   margin-bottom: 2vh;
 }
 
-.cards{
+#cards{
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -195,13 +195,15 @@ body{
   z-index: 100;
 }
 
-#header h1{
+#header .logo{
   color: white;
   font-family: "GENJ-Heavy";
+  font-size: 2.5vw;
   margin: 0 2vw;
+  text-decoration: none;
 }
 
-#header a{
+#header .organization{
   align-self: flex-end;
   color: white;
   font-family: "GENJ-Heavy";
