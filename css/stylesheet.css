@@ -11,7 +11,7 @@ input, button, textarea, select {
   outline: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
+  appearance:   none;
 }
 
 @font-face {
@@ -47,24 +47,24 @@ body{
  }
 
 .main{
-  height: 100vh;
-  width: 100vw;
-  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgba(252,207,49,0.5)), url(../image/reports.jpg);
-  background-size: auto 100%;
-  display: flex;
-  justify-content: center;
   align-items: center;
+  background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgba(252,207,49,0.5)), url(../image/reports.jpg);
+  background-size: cover;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
 }
 
 .main-border{
-  height: 94.5vh;
   width: 97vw;
+  align-items: center;
   border: 3px solid white;
   color: white;
-  position: relative;
   display: flex;
+  height: 94.5vh;
   justify-content: center;
-  align-items: center;
+  position: relative;
 }
 
 .main-contents{
@@ -148,6 +148,11 @@ body{
   margin-bottom: 2vh;
 }
 
+.contents p{
+  font-family: 'GENJ-Light';
+  font-size: 1.2vw;
+}
+
 #cards, #cards2 {
   margin: 0 auto;
   display: flex;
@@ -204,13 +209,14 @@ body{
 }
 
 #header .organization{
-  align-self: flex-end;
+  align-self: flex-end;ß
   color: white;
   font-family: "GENJ-Heavy";
   font-size: 2vw;
   margin-bottom: 1vh;
   margin-left: auto;
   margin-right: 2vw;
+  text-align: right;
 }
 
 .header-search input{
@@ -233,6 +239,60 @@ body{
   margin-bottom: 3vh;
 }
 
-.result p{
-  font-family: "GENJ-Light"
+@media screen and (max-width: 750px){
+  .main-border{
+    width: 92vw;
+  }
+
+  .main-contents h1{
+    font-size: 32px;
+  }
+
+  .main-contents h2{
+    font-size: 16px;
+  }
+
+  .main-contents input{
+    font-size: 20px;
+  }
+
+  .main-border a{
+    font-size: 16px;
+  }
+
+  #header .logo{
+    font-size: 24px;
+  }
+
+  #header .organization{
+    font-size: 14px;
+  }
+
+  .contents h2{
+    font-size: 28px;
+  }
+
+  .contents p{
+    font-size: 14px;
+  }
+
+  #cards, #cards2{
+    flex-direction: column;
+  }
+
+  .card{
+    width: 70vw;
+    margin: 0 auto 30px;
+  }
+
+  .card-title{
+    font-size: 20px;
+  }
+
+}
+
+@media screen and (min-width: 750px){
+  .br-sp{
+    display: none;
+  }
 }
