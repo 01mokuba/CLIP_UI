@@ -77,6 +77,7 @@ body{
 }
 
 .search input{
+  border-radius: 0 10px 10px 0 ;
   font-family: "GENJ-Medium";
   font-size: 1.8vw;
   padding-left: 1vw;
@@ -84,7 +85,6 @@ body{
   min-height: 50px;
   width: 55vw;
   display: block;
-  border-radius: 10px 0 0 10px;
   box-shadow: 2px 2px 3px #999;
 }
 
@@ -95,7 +95,7 @@ body{
   min-height: 50px;
   width: 15vw;
   background-color: #D9D9D9;
-  border-radius: 0 10px 10px 0 ;
+  border-radius: 10px 0 0 10px;
   box-shadow: 2px 2px 3px #999;
   display: flex;
   align-items: center;
