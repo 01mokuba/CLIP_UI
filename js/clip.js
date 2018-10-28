@@ -10,7 +10,6 @@ $form.submit(function(event) {
 
   var kw = $form.find("#kw").val();
   getResults(kw)
-
 });
 
 var getResults = function(kw){
@@ -81,7 +80,7 @@ var setCard = function(kw,result){
   console.log(hitsArr);
 
   var cards = $("#cards2").empty();
-  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
+  var article = "<article><div class='card'><a href='' class='card-title' target='_blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
 
   for (var i = 0; i < hitsArr.length; i++) {
     var hit = hitsArr[i];
