@@ -268,7 +268,7 @@ body{
   }
 
   #header .organization{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .contents h2{
@@ -289,7 +289,7 @@ body{
   }
 
   .card-title{
-    font-size: 4.5vw;
+    font-size: 5.0vw;
   }
 
   .filter p{
