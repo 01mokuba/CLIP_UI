@@ -194,7 +194,7 @@ body{
   align-items: center;
   background: linear-gradient( 90deg, rgba(245,85,85,0.5), rgba(252,207,49,0.5));
   display: flex;
-  height: 12vh;
+  height: 13vh;
   width: 100%;
   z-index: 100;
 }
