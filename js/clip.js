@@ -6,10 +6,10 @@ const $button2 = $form.find('#submit2');
 let searchWord = ""; // 検索ワード
 
 // 描画時
-window.onload = () => location.search  && searchByQuery(location.search);
+window.onload = () => searchByQuery(location.search || "");
 
 // 履歴の行き来する時
-window.onpopstate = () => location.search  && searchByQuery(location.search);
+window.onpopstate = () => searchByQuery(location.search || "");
 
 // パラメーターがあれば検索して結果を表示
 searchByQuery = query => {
@@ -20,6 +20,8 @@ searchByQuery = query => {
             searchWord = nextSearchWord
             getResults(searchWord)
         }
+    } else {
+        getResults("")
     }
 }
 
