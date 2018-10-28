@@ -82,7 +82,7 @@ var setCard = function(kw,result){
   console.log(hitsArr);
 
   var cards = $("#cards2").empty();
-  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p>国土交通省</p><p>2018年9月28日</p></div></article>";
+  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'>2018年9月28日</p></div></article>";
 
   for (var i = 0; i < hitsArr.length; i++) {
     var hit = hitsArr[i];
@@ -90,7 +90,10 @@ var setCard = function(kw,result){
     var articleQuery = $(article);
     cards.append(articleQuery);
     console.log(source["title"]);
+    articleQuery.find(".card-title").attr("href", source["htmlurl"]);
     articleQuery.find(".card-title").html(source["title"]);
+    articleQuery.find(".card-ministry").html(source["ministry"]);
+    articleQuery.find(".card-pdate").html(source["card-pdate"]);
   }
 }
 
@@ -175,7 +178,7 @@ var setCard2 = function(kw,result){
   console.log(hitsArr);
 
   var cards = $("#cards2").empty();
-  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p>国土交通省</p><p>2018年9月28日</p></div></article>";
+  var article = "<article><div class='card'><a href='' class='card-title' target='blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'>2018年9月28日</p></div></article>";
 
   for (var i = 0; i < hitsArr.length; i++) {
     var hit = hitsArr[i];
@@ -183,6 +186,9 @@ var setCard2 = function(kw,result){
     var articleQuery = $(article);
     cards.append(articleQuery);
     console.log(source["title"]);
+    articleQuery.find(".card-title").attr("href", source["htmlurl"]);
     articleQuery.find(".card-title").html(source["title"]);
+    articleQuery.find(".card-ministry").html(source["ministry"]);
+    articleQuery.find(".card-pdate").html(source["card-pdate"]);
   }
 }
