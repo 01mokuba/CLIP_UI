@@ -55,6 +55,7 @@ var getResults = function(kw){
             setCard(kw,result);
             $('#kw').val(kw);
             var temp = $('#kw').val();
+            $('#kwResults').text(kw);
             if( $('#kw').val() == "" ){
                 $('#top').show();
                 $('#results').hide();
@@ -76,7 +77,6 @@ var setCard = function(kw,result){
   console.log(numhits);
   console.log(kw);
   $('#numhits').text(numhits);
-  $('#kw2').text(kw);
 
   var hitsArr = result["hits"]["hits"];
   console.log(hitsArr);
@@ -148,6 +148,7 @@ var getResults2 = function(kw){
             //console.log(result);
             setCard2(kw,result);
             $('#kw2').val(kw);
+            $('#kwResults').text(kw);
             if( $('#kw2').val() == "" ){
                 $('#top').show();
                 $('#results').hide();
@@ -169,7 +170,6 @@ var setCard2 = function(kw,result){
   console.log(numhits);
   console.log(kw);
   $('#numhits').text(numhits);
-  $('#kw2').text(kw);
 
   var hitsArr = result["hits"]["hits"];
   console.log(hitsArr);
