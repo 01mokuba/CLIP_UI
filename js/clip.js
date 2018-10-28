@@ -1,51 +1,61 @@
-var $form = $('#search');
-var $button = $form.find('#submit');
-var $form2 = $('#search2');
-var $button2 = $form.find('#submit2');
-var kw = "";
+const ES_BASE_URL = "https://search-clip-uu6oh7i2l7fon6tlma23e6ax3a.ap-northeast-1.es.amazonaws.com/_search";
+const $form = $('#search');
+const $button = $form.find('#submit');
+const $form2 = $('#search2');
+const $button2 = $form.find('#submit2');
+let searchWord = ""; // 検索ワード
 
-window.onload = function() {
-  if (location.search) {
-    // パラメーターに含まれた検索ワードを取得
-    const param = location.search.substring(1).split('=');
-    const searchValue = decodeURIComponent(param[1])
-    if (searchValue !== kw) {
-      // 検索する
-      getResults(searchValue)
-      kw = searchValue
+// 描画時
+window.onload = () => location.search  && searchByQuery(location.search);
+
+// 履歴の行き来する時
+window.onpopstate = () => location.search  && searchByQuery(location.search);
+
+// パラメーターがあれば検索して結果を表示
+searchByQuery = query => {
+    if (query) {
+        const param = query.substring(1).split('=');
+        const nextSearchWord = decodeURIComponent(param[1])
+        if (nextSearchWord !== searchWord) {
+            searchWord = nextSearchWord
+            getResults(searchWord)
+        }
     }
-  }
 }
 
+// トップ画面から検索時
 $form.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
-    kw = $form.find("#kw").val();
-    window.location.href = `?q=${kw}`
+    searchWord = $form.find("#searchWord").val();
+    setParameter(searchWord)
 });
 
+// ヘッダーから検索時
 $form2.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
-    kw = $form2.find("#kw2").val();
-    window.location.href = `?q=${kw}`
+    searchWord = $form2.find("#searchWord2").val();
+    setParameter(searchWord)
 });
 
-var getResults = function(kw){
-  var esurl = "https://search-clip-uu6oh7i2l7fon6tlma23e6ax3a.ap-northeast-1.es.amazonaws.com/_search";
-  if(kw !== ""){
-    var query = "?q=" + kw;
-    esurl += query;
-  }
+// パラメーターをセット
+setParameter = searchWord => {
+    history.pushState(null, null, `?q=${searchWord}`);
+    getResults(searchWord);
+}
 
-  var data ={
-      "query":{
-          "match_all":{}
-      }
-  };
+// 検索して結果を返す
+getResults = searchWord => {
+    const searchUrl = `${ES_BASE_URL}?q=${searchWord}`
+    const data ={
+        "query":{
+            "match_all":{}
+        }
+    };
 
     $.ajax({
-        url: esurl,
+        url: searchUrl,
         type: "POST",
         data: data,
         timeout: 10000,  // 単位はミリ秒
@@ -64,12 +74,9 @@ var getResults = function(kw){
         success: function(result, textStatus, xhr) {
             // 入力値を初期化
             $form[0].reset();
-            setCard(kw,result);
-            if (kw !== "undefined") {
-                $('#kw').val(kw);
-            }
-            $('#kw2').val(kw);
-            if( kw == "" || kw === "undefined" ){
+            setCard(searchWord,result);
+            $('#searchWord2').val(searchWord);
+            if( searchWord == "" || searchWord === "undefined" ){
                 $('#top').show();
                 $('#results').hide();
             } else {
@@ -85,23 +92,20 @@ var getResults = function(kw){
 
 }
 
-var setCard = function(kw,result){
-  var numhits = result["hits"]["total"];
-  $('#numhits').text(numhits);
+setCard = (searchWord, result) => {
+    const numhits = result.hits.total;
+    const hitsArray = result.hits.hits;
+    const cards = $("#cards2").empty();
+    const article = "<article><div class='card'><a href='' class='card-title' target='_blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
 
-  var hitsArr = result["hits"]["hits"];
-
-  var cards = $("#cards2").empty();
-  var article = "<article><div class='card'><a href='' class='card-title' target='_blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
-
-  for (var i = 0; i < hitsArr.length; i++) {
-    var hit = hitsArr[i];
-    var source = hit["_source"];
-    var articleQuery = $(article);
-    cards.append(articleQuery);
-    articleQuery.find(".card-title").attr("href", source["htmlurl"]);
-    articleQuery.find(".card-title").html(source["title"]);
-    articleQuery.find(".card-ministry").html(source["ministry"]);
-    articleQuery.find(".card-pdate").html(source["pdate"]);
-  }
+    $('#numhits').text(numhits);
+    hitsArray.map(item => {
+        const source = item._source;
+        const articleQuery = $(article);
+        cards.append(articleQuery);
+        articleQuery.find(".card-title").attr("href", source.htmlurl);
+        articleQuery.find(".card-title").html(source.title);
+        articleQuery.find(".card-ministry").html(source.ministry);
+        articleQuery.find(".card-pdate").html(source.pdate);
+    })
 }
