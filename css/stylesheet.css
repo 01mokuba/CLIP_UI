@@ -116,7 +116,6 @@ body{
   font-family: "GENJ-Heavy";
   font-size: 5vw;
   text-align: center;
-  text-decoration: underline;
   margin-bottom: 10px;
 }
 
@@ -245,11 +244,11 @@ body{
   }
 
   .main-contents h1{
-    font-size: 32px;
+    font-size: 7.5vw;
   }
 
   .main-contents h2{
-    font-size: 16px;
+    font-size: 3.0vw;
   }
 
   .main-contents input{
@@ -257,7 +256,7 @@ body{
   }
 
   .main-border a{
-    font-size: 16px;
+    font-size:  6.0vw;
   }
 
   #header .logo{
