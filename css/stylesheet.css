@@ -81,7 +81,6 @@ body{
   font-size: 1.8vw;
   padding-left: 1vw;
   height: 8vh;
-  min-height: 50px;
   width: 55vw;
   display: block;
   border-radius: 10px 0 0 10px;
@@ -268,7 +267,7 @@ body{
   }
 
   #header .organization{
-    font-size: 12px;
+    font-size: 10px;
   }
 
   .contents h2{
