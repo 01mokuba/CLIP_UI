@@ -54,8 +54,7 @@ var getResults = function(kw){
             //console.log(result);
             setCard(kw,result);
             $('#kw').val(kw);
-            var temp = $('#kw').val();
-            $('#kwResults').text(kw);
+            $('#kw2').val(kw);
             if( $('#kw').val() == "" ){
                 $('#top').show();
                 $('#results').hide();
@@ -151,7 +150,6 @@ var getResults2 = function(kw){
             //console.log(result);
             setCard2(kw,result);
             $('#kw2').val(kw);
-            $('#kwResults').text(kw);
             if( $('#kw2').val() == "" ){
                 $('#top').show();
                 $('#results').hide();

@@ -264,7 +264,7 @@ body{
   }
 
   #header .organization{
-    font-size: 14px;
+    font-size: 12px;
   }
 
   .contents h2{
@@ -293,7 +293,7 @@ body{
   }
 
   .filter img{
-    height: 75%;
+    height: 70%;
     margin: 0;
   }
 
