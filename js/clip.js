@@ -78,7 +78,7 @@ getResults = searchWord => {
             $form[0].reset();
             setCard(searchWord,result);
             $('#searchWord2').val(searchWord);
-            if( searchWord == "" || searchWord === "undefined" ){
+            if( searchWord === "" || searchWord === "undefined" ){
                 $('#top').show();
                 $('#results').hide();
             } else {
