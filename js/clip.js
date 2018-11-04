@@ -69,7 +69,7 @@ getResults = function(searchWord) {
                 ]
             }
         }
-    }
+    };
 
     $.ajax({
         url: ES_BASE_URL,
