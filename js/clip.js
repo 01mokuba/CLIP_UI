@@ -6,13 +6,13 @@ const $button2 = $form.find('#submit2');
 let searchWord = ""; // 検索ワード
 
 // 描画時
-window.onload = () => searchByQuery(location.search || "");
+window.onload = function() {searchByQuery(location.search || "")};
 
 // 履歴の行き来する時
-window.onpopstate = () => searchByQuery(location.search || "");
+window.onpopstate = function() {searchByQuery(location.search || "")};
 
 // パラメーターがあれば検索して結果を表示
-searchByQuery = query => {
+searchByQuery = function(query) {
     if (query) {
         const param = query.substring(1).split('=');
         const nextSearchWord = decodeURIComponent(param[1])
@@ -42,14 +42,14 @@ $form2.submit(function(event) {
 });
 
 // パラメーターをセット
-setParameter = searchWord => {
-    history.pushState(null, null, `?q=${searchWord}`);
+setParameter = function(searchWord) {
+    history.pushState(null, null, '?q=' + searchWord);
     getResults(searchWord);
 }
 
 // 検索して結果を返す
-getResults = searchWord => {
-    const searchUrl = `${ES_BASE_URL}?q=${searchWord}`
+getResults = function(searchWord) {
+    const searchUrl = ES_BASE_URL + '?q=' + searchWord
     // 省庁絞り込み結果を取得
     var ministries = $('.ministry:checked').map(function() {
       return parseFloat($(this).val());
@@ -94,20 +94,21 @@ getResults = searchWord => {
         },
         // 通信失敗時の処理
         error: function(xhr, textStatus, error) {
+            console.log(error);
             console.log('NG...');
         }
     });
 
 }
 
-setCard = (searchWord, result) => {
+setCard = function(searchWord, result) {
     const numhits = result.hits.total;
     const hitsArray = result.hits.hits;
     const cards = $("#cards2").empty();
     const article = "<article><div class='card'><a href='' class='card-title' target='_blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
 
     $('#numhits').text(numhits);
-    hitsArray.map(item => {
+    hitsArray.map(function(item) {
         const source = item._source;
         const articleQuery = $(article);
         cards.append(articleQuery);
@@ -175,4 +176,3 @@ $(function(){
         }
     });
 });
-
