@@ -111,3 +111,62 @@ setCard = (searchWord, result) => {
         articleQuery.find(".card-pdate").html(source.pdate);
     })
 }
+
+$(function(){
+    $('#filter').click(function(){
+        if ($(this).hasClass('selected')) {
+            // メニュー非表示
+            $(this).removeClass('selected');
+            $('#checkbox-container').slideUp('fast');
+        }else{
+            // メニュー表示
+            $(this).addClass('selected');
+            $('#checkbox-container').slideDown('fast');
+        }
+    });
+
+    // マウスカーソルがメニュー上/メニュー外
+    $('#checkbox-container, #filter').hover(function(){
+        over_flg = true;
+    }, function(){
+        over_flg = false;
+    });
+
+    // メニュー領域外をクリックしたらメニューを閉じる
+    $('body').click(function() {
+        if (over_flg == false) {
+            $('#filter').removeClass('selected');
+            $('#checkbox-container').slideUp('fast');
+        }
+    });
+});
+
+$(function(){
+    $('#filter2').click(function(){
+        if ($(this).hasClass('selected')) {
+            // メニュー非表示
+            $(this).removeClass('selected');
+            $('#checkbox-container2').slideUp('fast');
+        }else{
+            // メニュー表示
+            $(this).addClass('selected');
+            $('#checkbox-container2').slideDown('fast');
+        }
+    });
+
+    // マウスカーソルがメニュー上/メニュー外
+    $('#checkbox-container2, #filter2').hover(function(){
+        over_flg = true;
+    }, function(){
+        over_flg = false;
+    });
+
+    // メニュー領域外をクリックしたらメニューを閉じる
+    $('body').click(function() {
+        if (over_flg == false) {
+            $('#filter2').removeClass('selected');
+            $('#checkbox-container2').slideUp('fast');
+        }
+    });
+});
+

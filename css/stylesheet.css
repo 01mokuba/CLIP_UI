@@ -9,9 +9,9 @@ input, button, textarea, select {
   border: none;
   border-radius: 0;
   outline: none;
-  -webkit-appearance: none;
+/*  -webkit-appearance: none;
   -moz-appearance: none;
-  appearance:   none;
+  appearance: none;*/
 }
 
 @font-face {
@@ -74,9 +74,10 @@ body{
 .search{
   display: flex;
   justify-content: center;
+  position: relative;
 }
 
-.search input{
+.search input[type="search"]{
   border-radius: 0 10px 10px 0 ;
   font-family: "GENJ-Medium";
   font-size: 1.8vw;
@@ -88,26 +89,50 @@ body{
   box-shadow: 2px 2px 3px #999;
 }
 
-.filter{
-  font-family: "GENJ-Heavy";
-  color: #747474;
-  height: 8vh;
-  min-height: 50px;
-  width: 15vw;
+#filter, #filter2{
+  align-items: center;
   background-color: #D9D9D9;
   border-radius: 10px 0 0 10px;
   box-shadow: 2px 2px 3px #999;
+  color: #747474;
+  cursor: pointer;
   display: flex;
-  align-items: center;
+  font-family: "GENJ-Heavy";
+  height: 8vh;
   justify-content: center;
+  min-height: 50px;
+  width: 15vw;
 }
 
-.filter p{
+#filter p, #filter2 p{
   font-size: 2vw;
   margin: 0 0.2vw 0 0.6vw;
 }
 
-.filter img{
+#checkbox-container, #checkbox-container2{
+  background-color: white;
+  color: black;
+  display: none;
+  font-family: 'GENJ-Light';
+  font-size: 1.5vw;
+  height: 35vh;
+  overflow: scroll;
+  position: absolute;
+  top: 8vh;
+  width: 15vw;
+}
+
+#checkbox-container input[ type="checkbox" ], #checkbox-container2 input[ type="checkbox" ] {
+  margin-left: 15px;
+  margin-right: 5px;
+  -moz-transform-origin: right bottom;
+  -moz-transform: scale( 1.5 , 1.5 );
+  -webkit-transform-origin: right bottom;
+  -webkit-transform: scale( 1.5 , 1.5 );
+}
+
+
+#filter img, #filter2 img{
   height: 3vw;
   margin: 0 0.2vw 0 0.6vw;
 }
@@ -218,7 +243,7 @@ body{
   text-align: right;
 }
 
-.header-search input{
+.header-search input[type="search"]{
   width: 40vw;
 }
 
@@ -251,7 +276,7 @@ body{
     font-size: 4.5vw;
   }
 
-  .main-contents input{
+  .main-contents input[type="search"]{
     font-size: 20px;
   }
 
@@ -263,7 +288,7 @@ body{
     font-size: 24px;
   }
 
-  #header input{
+  #header input[type="search"]{
     font-size: 16px;
   }
 
@@ -292,11 +317,11 @@ body{
     font-size: 5.0vw;
   }
 
-  .filter p{
+  #filter p, #filter2 p{
     display: none;
   }
 
-  .filter img{
+  #filter img, #filter2 img{
     height: 70%;
     margin: 0;
   }
