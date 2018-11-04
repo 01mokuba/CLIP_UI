@@ -1,4 +1,4 @@
-const ES_BASE_URL = "https://search-clip-uu6oh7i2l7fon6tlma23e6ax3a.ap-northeast-1.es.amazonaws.com/_search";
+const ES_BASE_URL = "http://ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/documents/_search";
 const $form = $('#search');
 const $button = $form.find('#submit');
 const $form2 = $('#search2');
@@ -50,18 +50,24 @@ setParameter = searchWord => {
 // 検索して結果を返す
 getResults = searchWord => {
     const searchUrl = `${ES_BASE_URL}?q=${searchWord}`
+    // 省庁絞り込み結果を取得
+    var ministries = $('.ministry:checked').map(function() {
+      return parseFloat($(this).val());
+    }).get();
     const data ={
         "query":{
-            "match_all":{}
+            "terms": {
+                "ministry_id": ministries
+            }
         }
     };
 
     $.ajax({
         url: searchUrl,
         type: "POST",
-        data: data,
+        data: JSON.stringify(data),
+        contentType: 'application/json',
         timeout: 10000,  // 単位はミリ秒
-
         // 送信前
         beforeSend: function(xhr, settings) {
             // ボタンを無効化し、二重送信を防止
@@ -105,9 +111,9 @@ setCard = (searchWord, result) => {
         const source = item._source;
         const articleQuery = $(article);
         cards.append(articleQuery);
-        articleQuery.find(".card-title").attr("href", source.htmlurl);
+        articleQuery.find(".card-title").attr("href", source.page_url);
         articleQuery.find(".card-title").html(source.title);
-        articleQuery.find(".card-ministry").html(source.ministry);
+        articleQuery.find(".card-ministry").html(source.ministry_name);
         articleQuery.find(".card-pdate").html(source.pdate);
     })
 }
