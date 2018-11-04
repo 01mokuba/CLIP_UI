@@ -193,8 +193,12 @@ body{
 }
 
 .card-title{
+  display: block;
   font-family: "GENJ-Heavy";
   font-size:  1.3vw;
+  height: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-detail{

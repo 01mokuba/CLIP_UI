@@ -106,9 +106,9 @@ setCard = function(searchWord, result) {
         const source = item._source;
         const articleQuery = $(article);
         cards.append(articleQuery);
-        articleQuery.find(".card-title").attr("href", source.htmlurl);
+        articleQuery.find(".card-title").attr("href", source.page_url);
         articleQuery.find(".card-title").html(source.title);
-        articleQuery.find(".card-ministry").html(source.ministry);
+        articleQuery.find(".card-ministry").html(source.ministry_name);
         articleQuery.find(".card-pdate").html(source.pdate);
     })
 }
