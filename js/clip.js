@@ -1,4 +1,4 @@
-const ES_BASE_URL = "http://ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/_search";
+const ES_BASE_URL = "http://ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/documents/_search";
 const $form = $('#search');
 const $button = $form.find('#submit');
 const $form2 = $('#search2');
@@ -50,18 +50,33 @@ setParameter = function(searchWord) {
 // 検索して結果を返す
 getResults = function(searchWord) {
     const searchUrl = ES_BASE_URL + '?q=' + searchWord
-    const data ={
-        "query":{
-            "match_all":{}
+    // 省庁絞り込み結果を取得
+    var ministries = $('.ministry:checked').map(function() {
+      return parseFloat($(this).val());
+    }).get();
+    const data = {
+        "query": {
+            "bool": {
+              "filter": [
+                    {"terms": {
+                        "ministry_id": ministries
+                      }
+                    },
+                    {"term": {
+                        "text": searchWord
+                      }
+                    }
+                ]
+            }
         }
     };
 
     $.ajax({
-        url: searchUrl,
+        url: ES_BASE_URL,
         type: "POST",
-        data: data,
+        data: JSON.stringify(data),
+        contentType: 'application/json',
         timeout: 10000,  // 単位はミリ秒
-
         // 送信前
         beforeSend: function(xhr, settings) {
             // ボタンを無効化し、二重送信を防止
