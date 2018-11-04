@@ -123,6 +123,8 @@ body{
 }
 
 #checkbox-container input[type="checkbox"], #checkbox-container2 input[type="checkbox"]{
+  height: 1.5vw;
+  width: 1.5vw;
   margin-left: 15px;
   margin-right: 5px;
 }
@@ -319,6 +321,11 @@ body{
   #filter img, #filter2 img{
     height: 70%;
     margin: 0;
+  }
+
+  #checkbox-container input[type="checkbox"], #checkbox-container2 input[type="checkbox"]{
+    height: 12px;
+    width: 12px;
   }
 
   #checkbox-container{
