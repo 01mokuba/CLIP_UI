@@ -1,4 +1,4 @@
-const ES_BASE_URL = "https://search-clip-uu6oh7i2l7fon6tlma23e6ax3a.ap-northeast-1.es.amazonaws.com/_search";
+const ES_BASE_URL = "http://ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/_search";
 const $form = $('#search');
 const $button = $form.find('#submit');
 const $form2 = $('#search2');
