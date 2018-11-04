@@ -51,9 +51,12 @@ setParameter = function(searchWord) {
 getResults = function(searchWord) {
     const searchUrl = ES_BASE_URL + '?q=' + searchWord
     // 省庁絞り込み結果を取得
-    const ministries = $('.ministry:checked').map(function() {
+    var ministries = $('.ministry:checked').map(function() {
       return parseFloat($(this).val());
     }).get();
+    if (ministries.length == 0) {
+        ministries = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+    }
     const data = {
         "query": {
             "bool": {
