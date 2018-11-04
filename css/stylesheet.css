@@ -3,15 +3,15 @@
   padding: 0;
 }
 
-input, button, textarea, select {
+input[type="search"], input[type="submit"], button, textarea, select {
   margin: 0;
   padding: 0;
   border: none;
   border-radius: 0;
   outline: none;
-/*  -webkit-appearance: none;
+  -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;*/
+  appearance: none;
 }
 
 @font-face {
@@ -122,15 +122,10 @@ body{
   width: 15vw;
 }
 
-#checkbox-container input[ type="checkbox" ], #checkbox-container2 input[ type="checkbox" ] {
+#checkbox-container input[type="checkbox"], #checkbox-container2 input[type="checkbox"]{
   margin-left: 15px;
   margin-right: 5px;
-  -moz-transform-origin: right bottom;
-  -moz-transform: scale( 1.5 , 1.5 );
-  -webkit-transform-origin: right bottom;
-  -webkit-transform: scale( 1.5 , 1.5 );
 }
-
 
 #filter img, #filter2 img{
   height: 3vw;
@@ -324,6 +319,16 @@ body{
   #filter img, #filter2 img{
     height: 70%;
     margin: 0;
+  }
+
+  #checkbox-container{
+    font-size: 12px;
+    width: 70vw;
+  }
+
+  #checkbox-container2{
+    font-size: 12px;
+    width: 40vw;
   }
 
 }
