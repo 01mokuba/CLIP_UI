@@ -51,7 +51,7 @@ setParameter = function(searchWord) {
 getResults = function(searchWord) {
     const searchUrl = ES_BASE_URL + '?q=' + searchWord
     // 省庁絞り込み結果を取得
-    var ministries = $('.ministry:checked').map(function() {
+    const ministries = $('.ministry:checked').map(function() {
       return parseFloat($(this).val());
     }).get();
     const data = {
@@ -92,6 +92,7 @@ getResults = function(searchWord) {
             // 入力値を初期化
             $form[0].reset();
             setCard(searchWord,result);
+            setMinistry(ministries)
             $('#searchWord2').val(searchWord);
             if( searchWord === "" || searchWord === "undefined" ){
                 $('#top').show();
@@ -126,6 +127,56 @@ setCard = function(searchWord, result) {
         articleQuery.find(".card-ministry").html(source.ministry_name);
         articleQuery.find(".card-pdate").html(source.pdate);
     })
+}
+
+setMinistry = function(ministries) {
+    var ministryText = ""
+    for(var i = 0; i < ministries.length; i++) {
+        const ministryId = ministries[i];
+        if (ministryId == 1) {
+            ministryText += "内閣府 "
+        }
+        if (ministryId == 2) {
+            ministryText += "総務省 "
+        }
+        if (ministryId == 3) {
+            ministryText += "法務省 "
+        }
+        if (ministryId == 4) {
+            ministryText += "外務省 "
+        }
+        if (ministryId == 5) {
+            ministryText += "財務省 "
+        }
+        if (ministryId == 6) {
+            ministryText += "文部科学省 "
+        }
+        if (ministryId == 7) {
+            ministryText += "厚生労働省 "
+        }
+        if (ministryId == 8) {
+            ministryText += "農林水産省 "
+        }
+        if (ministryId == 9) {
+            ministryText += "経済産業省 "
+        }
+        if (ministryId == 10) {
+            ministryText += "国土交通省 "
+        }
+        if (ministryId == 11) {
+            ministryText += "環境省 "
+        }
+        if (ministryId == 12) {
+            ministryText += "防衛省 "
+        }
+        if (ministryId == 13) {
+            ministryText += "復興庁 "
+        }
+        if (ministryId == 14) {
+            ministryText += "金融庁 "
+        }
+    }
+    $('#specified-ministries').text(ministryText);
 }
 
 $(function(){
