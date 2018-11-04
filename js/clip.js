@@ -54,16 +54,25 @@ getResults = searchWord => {
     var ministries = $('.ministry:checked').map(function() {
       return parseFloat($(this).val());
     }).get();
-    const data ={
-        "query":{
-            "terms": {
-                "ministry_id": ministries
+    const data = {
+        "query": {
+            "bool": {
+              "filter": [
+                    {"terms": {
+                        "ministry_id": ministries
+                      }
+                    },
+                    {"term": {
+                        "text": searchWord
+                      }
+                    }
+                ]
             }
         }
-    };
+    }
 
     $.ajax({
-        url: searchUrl,
+        url: ES_BASE_URL,
         type: "POST",
         data: JSON.stringify(data),
         contentType: 'application/json',
