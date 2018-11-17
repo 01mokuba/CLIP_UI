@@ -54,7 +54,7 @@ $form.submit(function(event) {
     setParameter()
     gtag(
         'event', 'search', {
-            'search_term': searchWord, 
+            'search_term': searchWord,
             'position': 'top'
         }
     );
@@ -113,7 +113,7 @@ getResults = function() {
         }
     };
     var searchUrl;
-    if (currentPage > 0) {
+    if (currentPage > 1) {
         searchUrl = constants.ES_BASE_URL + '?size=' + constants.PER_PAGE_COUNT + '&from=' + constants.PER_PAGE_COUNT * (currentPage - 1)
     } else {
         searchUrl = constants.ES_BASE_URL + '?size=' + constants.PER_PAGE_COUNT
