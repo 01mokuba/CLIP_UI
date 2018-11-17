@@ -30,6 +30,12 @@ $form.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
     searchWord = $form.find("#searchWord").val();
+    gtag(
+        'event', 'search', {
+        'event_category': 'search',
+        'event_label': 'top',
+        'value': searchWord
+    });
     setParameter(searchWord)
 });
 
@@ -38,6 +44,12 @@ $form2.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
     searchWord = $form2.find("#searchWord2").val();
+    gtag(
+        'event', 'search', {
+        'event_category': 'search',
+        'event_label': 'header',
+        'value': searchWord
+    });
     setParameter(searchWord)
 });
 
