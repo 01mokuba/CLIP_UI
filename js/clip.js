@@ -75,7 +75,7 @@ getResults = function(searchWord) {
     };
 
     $.ajax({
-        url: ES_BASE_URL,
+        url: ES_BASE_URL + '?size=20',
         type: "POST",
         data: JSON.stringify(data),
         contentType: 'application/json',
