@@ -63,11 +63,12 @@ getResults = function(searchWord) {
               "filter": [
                     {"terms": {
                         "ministry_id": ministries
-                      }
+                        }
                     },
-                    {"term": {
-                        "text": searchWord
-                      }
+                    {"query_string": {
+                        "default_field" : "text",
+                        "query": searchWord
+                        }
                     }
                 ]
             }
