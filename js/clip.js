@@ -32,7 +32,8 @@ $form.submit(function(event) {
     searchWord = $form.find("#searchWord").val();
     gtag(
         'event', 'search', {
-            'search_term': searchWord 
+            'search_term': searchWord, 
+            'position': 'top'
         }
     );
     setParameter(searchWord)
@@ -45,7 +46,8 @@ $form2.submit(function(event) {
     searchWord = $form2.find("#searchWord2").val();
     gtag(
         'event', 'search', {
-            'search_term': searchWord 
+            'search_term': searchWord,
+            'position': 'header'
         }
     );
     setParameter(searchWord)
