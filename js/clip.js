@@ -131,7 +131,7 @@ setCard = function(searchWord, result) {
     const numhits = result.hits.total;
     const hitsArray = result.hits.hits;
     const cards = $("#cards2").empty();
-    const article = "<article><div class='card'><a href='' class='card-title' target='_blank'></a><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
+    const article = "<article><div class='card'><div class='card-title'></div><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
 
     $('#numhits').text(numhits);
     hitsArray.map(function(item) {
@@ -251,4 +251,12 @@ $(function(){
             $('#checkbox-container2').slideUp('fast');
         }
     });
+});
+
+// カードをクリックしたら遷移する
+$(function(){
+    $(document).on('click', '.card', function(){
+        var href = $(this).children('div:first').attr('href');
+        window.open(href);
+    })
 });
