@@ -79,7 +79,7 @@ getResults = function(searchWord) {
                     },
                     {"query_string": {
                         "default_field" : "text",
-                        "query": searchWord
+                        "query": '¥"' + searchWord + '¥"'
                         }
                     }
                 ]
