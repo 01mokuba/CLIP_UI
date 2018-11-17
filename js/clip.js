@@ -52,6 +52,13 @@ $form.submit(function(event) {
     event.preventDefault();
     searchWord = $form.find("#searchWord").val();
     setParameter()
+    gtag(
+        'event', 'search', {
+            'search_term': searchWord, 
+            'position': 'top'
+        }
+    );
+    setParameter(searchWord)
 });
 
 // ヘッダーから検索時
@@ -60,6 +67,13 @@ $form2.submit(function(event) {
     event.preventDefault();
     searchWord = $form2.find("#searchWord2").val();
     setParameter()
+    gtag(
+        'event', 'search', {
+            'search_term': searchWord,
+            'position': 'header'
+        }
+    );
+    setParameter(searchWord)
 });
 
 // パラメーターをセット
@@ -87,11 +101,12 @@ getResults = function() {
               "filter": [
                     {"terms": {
                         "ministry_id": ministries
-                      }
+                        }
                     },
-                    {"term": {
-                        "text": searchWord
-                      }
+                    {"query_string": {
+                        "default_field" : "text",
+                        "query": searchWord
+                        }
                     }
                 ]
             }
