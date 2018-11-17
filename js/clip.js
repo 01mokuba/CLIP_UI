@@ -1,4 +1,4 @@
-const ES_BASE_URL = "//ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/hirata_test/_search";
+const ES_BASE_URL = "//clip.mokuba.tech/search/clip/hirata_test/_search";
 const $form = $('#search');
 const $button = $form.find('#submit');
 const $form2 = $('#search2');
