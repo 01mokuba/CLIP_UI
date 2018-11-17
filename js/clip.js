@@ -32,9 +32,8 @@ $form.submit(function(event) {
     searchWord = $form.find("#searchWord").val();
     gtag(
         'event', 'search', {
-        'event_category': 'search',
-        'event_label': 'top',
-        'value': searchWord
+        'event_category': 'top',
+        'event_label': searchWord 
     });
     setParameter(searchWord)
 });
@@ -46,9 +45,8 @@ $form2.submit(function(event) {
     searchWord = $form2.find("#searchWord2").val();
     gtag(
         'event', 'search', {
-        'event_category': 'search',
-        'event_label': 'header',
-        'value': searchWord
+        'event_category': 'header',
+        'event_label': searchWord 
     });
     setParameter(searchWord)
 });
