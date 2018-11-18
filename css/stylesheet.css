@@ -284,6 +284,11 @@ body{
   margin-bottom: 3vh;
 }
 
+.pagination-wrapper {
+  width: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 750px){
   .main-border{
     width: 92vw;
