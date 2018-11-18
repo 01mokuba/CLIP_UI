@@ -1,5 +1,5 @@
 var constants = Object.freeze({
-    "ES_BASE_URL": "//ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/hirata_test/_search",
+    "ES_BASE_URL": "//clip.mokuba.tech/search/clip/hirata_test/_search",
     "PER_PAGE_COUNT": 20
 });
 
@@ -161,10 +161,10 @@ getResults = function() {
 
 setCard = function(searchWord, result) {
 
-    const numhits = result.hits.total;
-    const hitsArray = result.hits.hits;
-    const cards = $("#cards2").empty();
-    const article = "<article><div class='card'><div class='card-title'></div><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
+    var numhits = result.hits.total;
+    var hitsArray = result.hits.hits;
+    var cards = $("#cards2").empty();
+    var article = "<article><div class='card'><div class='card-title'></div><div class='card-detail'><p class='card-ministry'></p><p class='card-pdate'></p></div></article>";
 
     $('#numhits').text(numhits);
     hitsArray.map(function(item) {
