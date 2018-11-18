@@ -105,7 +105,7 @@ getResults = function() {
                     },
                     {"query_string": {
                         "default_field" : "text",
-                        "query": searchWord
+                        "query": '¥"' + searchWord + '¥"'
                         }
                     }
                 ]
