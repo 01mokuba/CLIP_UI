@@ -1,5 +1,5 @@
 var constants = Object.freeze({
-    "ES_BASE_URL": "http://ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/hirata_test/_search",
+    "ES_BASE_URL": "//ec2-52-197-160-102.ap-northeast-1.compute.amazonaws.com:9200/clip/hirata_test/_search",
     "PER_PAGE_COUNT": 20
 });
 
