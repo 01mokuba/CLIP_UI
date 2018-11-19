@@ -1,5 +1,5 @@
 var constants = Object.freeze({
-    "ES_BASE_URL": "https://clip.mokuba.tech/search/clip/hirata_test/_search",
+    "ES_BASE_URL": "//clip.mokuba.tech/search/clip/hirata_test/_search",
     "PER_PAGE_COUNT": 20
 });
 
