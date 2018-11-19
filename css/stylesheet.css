@@ -12,6 +12,7 @@ input[type="search"], input[type="submit"], button, textarea, select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: #333;
 }
 
 @font-face {
