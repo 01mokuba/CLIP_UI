@@ -22,6 +22,7 @@ window.onpopstate = function() {searchByQuery(location.search || "")};
 
 // クエリがあれば検索して結果を表示
 searchByQuery = function(query) {
+    currentPage = 1;
     if (query) {
         parseQueryString(query)
         var nextSearchWord = paramObj.q
@@ -229,8 +230,8 @@ setMinistry = function(ministries) {
 }
 
 setPagination = function(numhits) {
-    if (numhits > 0) {
-        $pagination.twbsPagination('destroy');
+    $pagination.twbsPagination('destroy');
+    if (numhits > constants.PER_PAGE_COUNT) {
         $pagination.twbsPagination({
             startPage: currentPage,
             totalPages: numhits / constants.PER_PAGE_COUNT,
