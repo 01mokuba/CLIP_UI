@@ -112,6 +112,11 @@ getResults = function() {
                     }
                 ]
             }
+        },
+        "sort": {
+            "pdate": {
+                "order": "desc"
+            }
         }
     };
     var searchUrl;
