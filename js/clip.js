@@ -22,7 +22,6 @@ window.onpopstate = function() {searchByQuery(location.search || "")};
 
 // クエリがあれば検索して結果を表示
 searchByQuery = function(query) {
-    currentPage = 1;
     if (query) {
         parseQueryString(query)
         var nextSearchWord = paramObj.q
@@ -30,6 +29,8 @@ searchByQuery = function(query) {
             searchWord = nextSearchWord
             if (paramObj.page) {
                 currentPage = Number(paramObj.page)
+            } else {
+                currentPage = 1
             }
             setParameter()
         }
@@ -51,30 +52,30 @@ parseQueryString = function(queryString) {
 $form.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
+    currentPage = 1;
     searchWord = $form.find("#searchWord").val();
-    setParameter()
     gtag(
         'event', 'search', {
             'search_term': searchWord,
             'position': 'top'
         }
     );
-    setParameter(searchWord)
+    setParameter()
 });
 
 // ヘッダーから検索時
 $form2.submit(function(event) {
     // HTMLでの送信をキャンセル
     event.preventDefault();
+    currentPage = 1;
     searchWord = $form2.find("#searchWord2").val();
-    setParameter()
     gtag(
         'event', 'search', {
             'search_term': searchWord,
             'position': 'header'
         }
     );
-    setParameter(searchWord)
+    setParameter()
 });
 
 // パラメーターをセット
