@@ -1,5 +1,5 @@
 var constants = Object.freeze({
-    "ES_BASE_URL": "//clip.mokuba.tech/search/clip/hirata_test/_search",
+    "ES_BASE_URL": "https://clip.mokuba.tech/search/clip/hirata_test/_search",
     "PER_PAGE_COUNT": 20
 });
 
@@ -22,6 +22,7 @@ window.onpopstate = function() {searchByQuery(location.search || "")};
 
 // クエリがあれば検索して結果を表示
 searchByQuery = function(query) {
+    currentPage = 1;
     if (query) {
         parseQueryString(query)
         var nextSearchWord = paramObj.q
@@ -137,6 +138,7 @@ getResults = function() {
         // 通信成功時の処理
         success: function(result, textStatus, xhr) {
             // 入力値を初期化
+            console.log(result);
             $form[0].reset();
             setCard(searchWord,result);
             setMinistry(ministries);
@@ -229,8 +231,8 @@ setMinistry = function(ministries) {
 }
 
 setPagination = function(numhits) {
-    if (numhits > 0) {
-        $pagination.twbsPagination('destroy');
+    $pagination.twbsPagination('destroy');
+    if (numhits > constants.PER_PAGE_COUNT) {
         $pagination.twbsPagination({
             startPage: currentPage,
             totalPages: numhits / constants.PER_PAGE_COUNT,
