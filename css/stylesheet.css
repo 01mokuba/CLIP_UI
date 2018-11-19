@@ -92,7 +92,7 @@ body{
 
 #filter, #filter2{
   align-items: center;
-  background-color: #D9D9D9;
+  background-color: #cdd0d3;
   border-radius: 10px 0 0 10px;
   box-shadow: 2px 2px 3px #999;
   color: #747474;
@@ -103,6 +103,12 @@ body{
   justify-content: center;
   min-height: 50px;
   width: 15vw;
+  transition: 0.3s;
+}
+
+#filter:hover, #filter2:hover{
+  background-color: #b8bdc2;
+  transition: 0.3s;
 }
 
 #filter p, #filter2 p{
