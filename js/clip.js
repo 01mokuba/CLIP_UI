@@ -33,7 +33,7 @@ searchByQuery = function(query) {
             setParameter()
         }
     } else {
-        getResults("")
+        getResults()
     }
 }
 
@@ -229,19 +229,21 @@ setMinistry = function(ministries) {
 }
 
 setPagination = function(numhits) {
-    $pagination.twbsPagination('destroy');
-    $pagination.twbsPagination({
-        startPage: currentPage,
-        totalPages: numhits / constants.PER_PAGE_COUNT,
-        visiblePages: 5,
-        onPageClick: function (e, page) {
-            e.preventDefault();
-            if (page !== currentPage) {
-                currentPage = page;
-                setParameter();
+    if (numhits > 0) {
+        $pagination.twbsPagination('destroy');
+        $pagination.twbsPagination({
+            startPage: currentPage,
+            totalPages: numhits / constants.PER_PAGE_COUNT,
+            visiblePages: 5,
+            onPageClick: function (e, page) {
+                e.preventDefault();
+                if (page !== currentPage) {
+                    currentPage = page;
+                    setParameter();
+                }
             }
-        }
-    });
+        });
+    }
 }
 
 $(function(){
