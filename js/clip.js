@@ -138,7 +138,6 @@ getResults = function() {
         // 通信成功時の処理
         success: function(result, textStatus, xhr) {
             // 入力値を初期化
-            console.log(result);
             $form[0].reset();
             setCard(searchWord,result);
             setMinistry(ministries);
