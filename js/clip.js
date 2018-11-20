@@ -143,8 +143,11 @@ getResults = function() {
         },
         // 通信成功時の処理
         success: function(result, textStatus, xhr) {
+            // スクロール位置をトップにする
+            $(window).scrollTo(0);
             // 入力値を初期化
             $form[0].reset();
+            // 結果の表示
             setCard(searchWord,result);
             setMinistry(ministries);
             setPagination(result.hits.total);
