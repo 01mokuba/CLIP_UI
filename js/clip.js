@@ -1,5 +1,5 @@
 var constants = Object.freeze({
-    "ES_BASE_URL": "//clip.mokuba.tech/search/clip/hirata_test/_search",
+    "ES_BASE_URL": "https://clip.mokuba.tech/search/clip/hirata_test/_search",
     "PER_PAGE_COUNT": 20
 });
 
@@ -80,6 +80,8 @@ $form2.submit(function(event) {
 
 // パラメーターをセット
 setParameter = function() {
+    // ローダーを表示
+    $('#loader-wrapper').show();
     if (currentPage > 1) {
         history.pushState(null, null, '?q=' + searchWord + '&page=' + currentPage);
     } else {
@@ -143,6 +145,8 @@ getResults = function() {
         },
         // 通信成功時の処理
         success: function(result, textStatus, xhr) {
+            // ローダーを非表示
+            $('#loader-wrapper').delay(600).fadeOut(300);
             // 入力値を初期化
             $form[0].reset();
             setCard(searchWord,result);

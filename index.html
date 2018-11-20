@@ -7,6 +7,7 @@
   <link rel="stylesheet" type="text/css" href="css/bs_pagination.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <!-- OGP -->
   <meta property="og:description" content="報告書を、もっと使いやすく。省庁横断の報告書検索サービス「CLIP」">
@@ -65,6 +66,12 @@
     </div>
   </div>
   <div id="results">
+    <div id="loader-wrapper">
+      <div id="loader">
+        <img class="loader-img" src="./image/spinner.gif" alt="読み込み中" />
+        <p>読み込み中です...</p>
+      </div>
+    </div>
     <header id="header">
       <div class="header-wrapper">
         <a class="logo" href="./" title="">CLIP</a>
