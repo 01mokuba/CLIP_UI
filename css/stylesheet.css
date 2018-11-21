@@ -279,22 +279,14 @@ body{
 }
 
 #submit, #submit2{
-  background-color: #4285f4;
-  font-size: 2vw;
-  font-family: "GENJ-Heavy";
-  color: #ffffff;
+  font-size: 2.5vw;
+  color: #4285f4;
+  font-size: 2.5vw;
   width: 8vw;
   padding-left: 16px;
   padding-right: 16px;
   border-radius: 0px 10px 10px 0;
   box-shadow: 2px 2px 3px #999;
-  transition: 0.3s;
-}
-
-#submit:hover, #submit2:hover{
-  background-color: #3b77db;
-  box-shadow: 4px 4px 5px #999;
-  transition: 0.3s;
 }
 
 .results{
@@ -405,6 +397,11 @@ body{
   #filter img, #filter2 img{
     height: 70%;
     margin: 0;
+  }
+
+  #submit, #submit2{
+    font-size: 4vw;
+    padding-left: 0;
   }
 
   #checkbox-container input[type="checkbox"], #checkbox-container2 input[type="checkbox"]{
