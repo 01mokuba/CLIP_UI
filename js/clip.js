@@ -32,10 +32,10 @@ searchByQuery = function(query) {
             } else {
                 currentPage = 1
             }
-            setParameter()
+            setParameter("","")
         }
     } else {
-        getResults()
+        getResults("","")
     }
 }
 
@@ -60,7 +60,14 @@ $form.submit(function(event) {
             'position': 'top'
         }
     );
-    setParameter()
+    // 期間絞り込み結果を取得
+    var syear = $('#syear').val();
+    var smonth = $('#smonth').val();
+    var eyear = $('#eyear').val();
+    var emonth = $('#emonth').val();
+    var gte = constructPeriod(syear, smonth);
+    var lte = constructPeriod(eyear, emonth);
+    setParameter(gte,lte)
 });
 
 // ヘッダーから検索時
@@ -75,11 +82,37 @@ $form2.submit(function(event) {
             'position': 'header'
         }
     );
-    setParameter()
+    // 期間絞り込み結果を取得
+    var syear = $('#syear2').val();
+    var smonth = $('#smonth2').val();
+    var eyear = $('#eyear2').val();
+    var emonth = $('#emonth2').val();
+    var gte = constructPeriod(syear, smonth);
+    var lte = constructPeriod(eyear, emonth);
+    setParameter(gte,lte)
 });
 
+// 期間絞り込み変数を作成
+constructPeriod = function(year, month) {
+    var today = new Date();
+    var thisYear = today.getFullYear();
+    if (year === "0") {
+        year = "2010";
+    } else if (year === "100") {
+        year = thisYear;
+    }
+    if (month === "0") {
+        if (year == thisYear) {
+            month = today.getMonth() + 1
+        } else {
+            month = "1";
+        }
+    }
+    return year + '/' + month;
+}
+
 // パラメーターをセット
-setParameter = function() {
+setParameter = function(gte,lte) {
     // ローダーを表示
     $('#loader-wrapper').show();
     if (currentPage > 1) {
@@ -87,17 +120,26 @@ setParameter = function() {
     } else {
         history.pushState(null, null, '?q=' + searchWord);
     }
-    getResults();
+    getResults(gte,lte);
 }
 
 // 検索して結果を返す
-getResults = function() {
+getResults = function(gte,lte) {
     // 省庁絞り込み結果を取得
     var ministries = $('.ministry:checked').map(function() {
       return parseFloat($(this).val());
     }).get();
+    var isDefaultMinistry = false;
     if (ministries.length == 0) {
         ministries = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+        isDefaultMinistry = true;
+    }
+    // デフォルト期間絞り込み
+    var isDefaultPeriod = false;
+    if (gte === "" && lte === "") {
+        gte = constructPeriod("0","0")
+        lte = constructPeriod("100","0")
+        isDefaultPeriod = true;
     }
     var data = {
         "query": {
@@ -110,6 +152,15 @@ getResults = function() {
                     {"query_string": {
                         "default_field" : "text",
                         "query": '¥"' + searchWord + '¥"'
+                        }
+                    },
+                    {
+                        "range": {
+                            "pdate": {
+                                "gte": gte,
+                                "lte": lte,
+                                "format": "yyyy/MM"
+                            }
                         }
                     }
                 ]
@@ -153,7 +204,8 @@ getResults = function() {
             $form[0].reset();
             // 結果の表示
             setCard(searchWord,result);
-            setMinistry(ministries);
+            setPeriod(gte,lte,isDefaultPeriod)
+            setMinistry(ministries, isDefaultMinistry);
             setPagination(result.hits.total);
             $('#searchWord2').val(searchWord);
             if( searchWord === "" || searchWord === "undefined" ){
@@ -192,51 +244,67 @@ setCard = function(searchWord, result) {
     })
 }
 
-setMinistry = function(ministries) {
+setPeriod = function(gte,lte,isDefaultPeriod) {
+    var text = ""
+    if (isDefaultPeriod) {
+        text = "未指定"
+    } else {
+        var periodStart = gte.replace("/","年") + "月";
+        var periodEnd = lte.replace("/","年") + "月";
+        text = periodStart + " から " + periodEnd + " まで"
+    }
+    $('#specified-period').text(text);
+}
+
+setMinistry = function(ministries, isDefaultMinistry) {
     var ministryText = ""
-    for(var i = 0; i < ministries.length; i++) {
-        var ministryId = ministries[i];
-        if (ministryId == 1) {
-            ministryText += "内閣府 "
-        }
-        if (ministryId == 2) {
-            ministryText += "総務省 "
-        }
-        if (ministryId == 3) {
-            ministryText += "法務省 "
-        }
-        if (ministryId == 4) {
-            ministryText += "外務省 "
-        }
-        if (ministryId == 5) {
-            ministryText += "財務省 "
-        }
-        if (ministryId == 6) {
-            ministryText += "文部科学省 "
-        }
-        if (ministryId == 7) {
-            ministryText += "厚生労働省 "
-        }
-        if (ministryId == 8) {
-            ministryText += "農林水産省 "
-        }
-        if (ministryId == 9) {
-            ministryText += "経済産業省 "
-        }
-        if (ministryId == 10) {
-            ministryText += "国土交通省 "
-        }
-        if (ministryId == 11) {
-            ministryText += "環境省 "
-        }
-        if (ministryId == 12) {
-            ministryText += "防衛省 "
-        }
-        if (ministryId == 13) {
-            ministryText += "復興庁 "
-        }
-        if (ministryId == 14) {
-            ministryText += "金融庁 "
+    if (isDefaultMinistry) {
+        ministryText = "未指定"
+    } else {
+        for(var i = 0; i < ministries.length; i++) {
+            var ministryId = ministries[i];
+            if (ministryId == 1) {
+                ministryText += "内閣府 "
+            }
+            if (ministryId == 2) {
+                ministryText += "総務省 "
+            }
+            if (ministryId == 3) {
+                ministryText += "法務省 "
+            }
+            if (ministryId == 4) {
+                ministryText += "外務省 "
+            }
+            if (ministryId == 5) {
+                ministryText += "財務省 "
+            }
+            if (ministryId == 6) {
+                ministryText += "文部科学省 "
+            }
+            if (ministryId == 7) {
+                ministryText += "厚生労働省 "
+            }
+            if (ministryId == 8) {
+                ministryText += "農林水産省 "
+            }
+            if (ministryId == 9) {
+                ministryText += "経済産業省 "
+            }
+            if (ministryId == 10) {
+                ministryText += "国土交通省 "
+            }
+            if (ministryId == 11) {
+                ministryText += "環境省 "
+            }
+            if (ministryId == 12) {
+                ministryText += "防衛省 "
+            }
+            if (ministryId == 13) {
+                ministryText += "復興庁 "
+            }
+            if (ministryId == 14) {
+                ministryText += "金融庁 "
+            }
         }
     }
     $('#specified-ministries').text(ministryText);
@@ -253,7 +321,7 @@ setPagination = function(numhits) {
                 e.preventDefault();
                 if (page !== currentPage) {
                     currentPage = page;
-                    setParameter();
+                    setParameter("","");
                 }
             }
         });

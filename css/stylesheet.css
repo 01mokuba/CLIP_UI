@@ -3,7 +3,7 @@
   padding: 0;
 }
 
-input[type="search"], input[type="submit"], button, textarea, select {
+input[type="search"], input[type="submit"], button, textarea {
   margin: 0;
   padding: 0;
   border: none;
@@ -127,6 +127,7 @@ body{
   top: 8vh;
   width: 15vw;
   border: 1px solid #999;
+  padding: 8px;
 }
 
 #checkbox-container label,
@@ -342,6 +343,31 @@ body{
   width: 40px;
   height: 40px;
   margin-bottom: 10px;
+}
+
+.checkbox-title {
+  font-size: 16px;
+  background-color: #cdd0d3;
+  padding: 4px 0 4px 8px;
+  margin-top: 16px;
+  margin-bottom: 8px;
+}
+
+.checkbox-title:first-child {
+  margin-top: 0;
+}
+
+.ym-select-container {
+    display: flex;
+    margin: 8px 0 8px 12px;
+}
+
+select.ym-select {
+    font-size: 12px;
+}
+
+select.ym-select:first-child {
+    margin-right: 8px;
 }
 
 @media screen and (max-width: 750px){
