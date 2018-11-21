@@ -80,6 +80,8 @@ $form2.submit(function(event) {
 
 // パラメーターをセット
 setParameter = function() {
+    // ローダーを表示
+    $('#loader-wrapper').show();
     if (currentPage > 1) {
         history.pushState(null, null, '?q=' + searchWord + '&page=' + currentPage);
     } else {
@@ -145,6 +147,8 @@ getResults = function() {
         success: function(result, textStatus, xhr) {
             // スクロール位置をトップにする
             window.scrollTo(0, 0);
+            // ローダーを非表示
+            $('#loader-wrapper').delay(600).fadeOut(300);
             // 入力値を初期化
             $form[0].reset();
             // 結果の表示
