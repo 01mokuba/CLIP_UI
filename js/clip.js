@@ -61,12 +61,12 @@ $form.submit(function(event) {
         }
     );
     // 期間絞り込み結果を取得
-    var syear = $('#syear').val();
-    var smonth = $('#smonth').val();
-    var eyear = $('#eyear').val();
-    var emonth = $('#emonth').val();
-    var gte = constructPeriod(syear, smonth);
-    var lte = constructPeriod(eyear, emonth);
+    var fromYear = $('#syear').val();
+    var fromMonth = $('#smonth').val();
+    var toYear = $('#eyear').val();
+    var toMonth = $('#emonth').val();
+    var gte = constructPeriod(fromYear, fromMonth);
+    var lte = constructPeriod(toYear, toMonth);
     setParameter(gte,lte)
 });
 
@@ -83,12 +83,12 @@ $form2.submit(function(event) {
         }
     );
     // 期間絞り込み結果を取得
-    var syear = $('#syear2').val();
-    var smonth = $('#smonth2').val();
-    var eyear = $('#eyear2').val();
-    var emonth = $('#emonth2').val();
-    var gte = constructPeriod(syear, smonth);
-    var lte = constructPeriod(eyear, emonth);
+    var fromYear = $('#syear2').val();
+    var fromMonth = $('#smonth2').val();
+    var toYear = $('#eyear2').val();
+    var toMonth = $('#emonth2').val();
+    var gte = constructPeriod(fromYear, fromMonth);
+    var lte = constructPeriod(toYear, toMonth);
     setParameter(gte,lte)
 });
 
@@ -96,11 +96,15 @@ $form2.submit(function(event) {
 constructPeriod = function(year, month) {
     var today = new Date();
     var thisYear = today.getFullYear();
+    // 開始年が未指定の場合
     if (year === "0") {
         year = "2010";
-    } else if (year === "100") {
+    }
+    // 終了年が未指定の場合
+    else if (year === "100") {
         year = thisYear;
     }
+    // 月が未指定の場合
     if (month === "0") {
         if (year == thisYear) {
             month = today.getMonth() + 1
@@ -130,12 +134,13 @@ getResults = function(gte,lte) {
       return parseFloat($(this).val());
     }).get();
     var isDefaultMinistry = false;
+    // 省庁が未指定の場合
     if (ministries.length == 0) {
         ministries = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
         isDefaultMinistry = true;
     }
-    // デフォルト期間絞り込み
     var isDefaultPeriod = false;
+    // 期間が未指定の場合
     if (gte === "" && lte === "") {
         gte = constructPeriod("0","0")
         lte = constructPeriod("100","0")
