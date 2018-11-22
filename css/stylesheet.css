@@ -426,6 +426,7 @@ select.ym-select:first-child {
   #submit, #submit2{
     font-size: 4vw;
     padding-left: 0;
+    background-color: #ffffff;
   }
 
   #checkbox-container input[type="checkbox"], #checkbox-container2 input[type="checkbox"]{
