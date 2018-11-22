@@ -40,20 +40,84 @@
                   <img src="image/baseline-filter_list-24px.svg" alt="">
                 </div>
                 <div id="checkbox-container">
-                  <label><input type="checkbox" class="ministry" value="1">内閣府</label><br>
-                  <label><input type="checkbox" class="ministry" value="2">総務省</label><br>
-                  <label><input type="checkbox" class="ministry" value="3">法務省</label><br>
-                  <label><input type="checkbox" class="ministry" value="4">外務省</label><br>
-                  <label><input type="checkbox" class="ministry" value="5">財務省</label><br>
-                  <label><input type="checkbox" class="ministry" value="6">文部科学省</label><br>
-                  <label><input type="checkbox" class="ministry" value="7">厚生労働省</label><br>
-                  <label><input type="checkbox" class="ministry" value="8">農林水産省</label><br>
-                  <label><input type="checkbox" class="ministry" value="9">経済産業省</label><br>
-                  <label><input type="checkbox" class="ministry" value="10">国土交通省</label><br>
-                  <label><input type="checkbox" class="ministry" value="11">環境省</label><br>
-                  <label><input type="checkbox" class="ministry" value="12">防衛省</label><br>
-                  <label><input type="checkbox" class="ministry" value="13">復興庁</label><br>
-                  <label><input type="checkbox" class="ministry" value="14">金融庁</label><br>
+                  <div class="checkbox-title">期間</div>
+                  <div class="checkbox-content">
+                    <div class="ym-select-container">
+                    <select class="ym-select" id="syear">
+                        <option value="0" selected>---</option>
+                        <option value="2018">2018年</option>
+                        <option value="2017">2017年</option>
+                        <option value="2016">2016年</option>
+                        <option value="2015">2015年</option>
+                        <option value="2014">2014年</option>
+                        <option value="2013">2013年</option>
+                        <option value="2012">2012年</option>
+                        <option value="2011">2011年</option>
+                    </select>
+                    <select class="ym-select" id="smonth">
+                        <option value="0" selected>---</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <label>から</label>
+                  </div>
+                  <div class="ym-select-container">
+                    <select class="ym-select" id="eyear">
+                       <option value="100" selected>---</option>
+                       <option value="2018">2018年</option>
+                       <option value="2017">2017年</option>
+                       <option value="2016">2016年</option>
+                       <option value="2015">2015年</option>
+                       <option value="2014">2014年</option>
+                       <option value="2013">2013年</option>
+                       <option value="2012">2012年</option>
+                       <option value="2011">2011年</option>
+                    </select>
+                    <select class="ym-select" id="emonth">
+                        <option value="0" selected>---</option>
+                        <option value="1">1月</option>
+                        <option value="2">2月</option>
+                        <option value="3">3月</option>
+                        <option value="4">4月</option>
+                        <option value="5">5月</option>
+                        <option value="6">6月</option>
+                        <option value="7">7月</option>
+                        <option value="8">8月</option>
+                        <option value="9">9月</option>
+                        <option value="10">10月</option>
+                        <option value="11">11月</option>
+                        <option value="12">12月</option>
+                    </select>
+                    <label>まで</label>
+                  </div>
+                  </div>
+                  <div class="checkbox-title">省庁</div>
+                  <div class="checkbox-content">
+                    <label><input type="checkbox" class="ministry" value="1">内閣府</label><br>
+                    <label><input type="checkbox" class="ministry" value="2">総務省</label><br>
+                    <label><input type="checkbox" class="ministry" value="3">法務省</label><br>
+                    <label><input type="checkbox" class="ministry" value="4">外務省</label><br>
+                    <label><input type="checkbox" class="ministry" value="5">財務省</label><br>
+                    <label><input type="checkbox" class="ministry" value="6">文部科学省</label><br>
+                    <label><input type="checkbox" class="ministry" value="7">厚生労働省</label><br>
+                    <label><input type="checkbox" class="ministry" value="8">農林水産省</label><br>
+                    <label><input type="checkbox" class="ministry" value="9">経済産業省</label><br>
+                    <label><input type="checkbox" class="ministry" value="10">国土交通省</label><br>
+                    <label><input type="checkbox" class="ministry" value="11">環境省</label><br>
+                    <label><input type="checkbox" class="ministry" value="12">防衛省</label><br>
+                    <label><input type="checkbox" class="ministry" value="13">復興庁</label><br>
+                    <label><input type="checkbox" class="ministry" value="14">金融庁</label><br>
+                  </div>
                 </div>
                 <input type="search" id="searchWord" name="" autocomplete="off" placeholder="キーワードを入力">
                 <button type="submit" id="submit"><i class="fas fa-search"></i></button>
@@ -82,20 +146,84 @@
               <img src="image/baseline-filter_list-24px.svg" alt="">
             </div>
             <div id="checkbox-container2">
-              <label><input type="checkbox" class="ministry" value="1">内閣府</label><br>
-              <label><input type="checkbox" class="ministry" value="2">総務省</label><br>
-              <label><input type="checkbox" class="ministry" value="3">法務省</label><br>
-              <label><input type="checkbox" class="ministry" value="4">外務省</label><br>
-              <label><input type="checkbox" class="ministry" value="5">財務省</label><br>
-              <label><input type="checkbox" class="ministry" value="6">文部科学省</label><br>
-              <label><input type="checkbox" class="ministry" value="7">厚生労働省</label><br>
-              <label><input type="checkbox" class="ministry" value="8">農林水産省</label><br>
-              <label><input type="checkbox" class="ministry" value="9">経済産業省</label><br>
-              <label><input type="checkbox" class="ministry" value="10">国土交通省</label><br>
-              <label><input type="checkbox" class="ministry" value="11">環境省</label><br>
-              <label><input type="checkbox" class="ministry" value="12">防衛省</label><br>
-              <label><input type="checkbox" class="ministry" value="13">復興庁</label><br>
-              <label><input type="checkbox" class="ministry" value="14">金融庁</label><br>
+              <div class="checkbox-title">期間</div>
+              <div class="checkbox-content">
+                <div class="ym-select-container">
+                <select class="ym-select" id="syear2">
+                    <option value="0" selected>---</option>
+                    <option value="2018">2018年</option>
+                    <option value="2017">2017年</option>
+                    <option value="2016">2016年</option>
+                    <option value="2015">2015年</option>
+                    <option value="2014">2014年</option>
+                    <option value="2013">2013年</option>
+                    <option value="2012">2012年</option>
+                    <option value="2011">2011年</option>
+                </select>
+                <select class="ym-select" id="smonth2">
+                    <option value="0" selected>---</option>
+                    <option value="1">1月</option>
+                    <option value="2">2月</option>
+                    <option value="3">3月</option>
+                    <option value="4">4月</option>
+                    <option value="5">5月</option>
+                    <option value="6">6月</option>
+                    <option value="7">7月</option>
+                    <option value="8">8月</option>
+                    <option value="9">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <label>から</label>
+              </div>
+              <div class="ym-select-container">
+                <select class="ym-select" id="eyear2">
+                   <option value="100" selected>---</option>
+                   <option value="2018">2018年</option>
+                   <option value="2017">2017年</option>
+                   <option value="2016">2016年</option>
+                   <option value="2015">2015年</option>
+                   <option value="2014">2014年</option>
+                   <option value="2013">2013年</option>
+                   <option value="2012">2012年</option>
+                   <option value="2011">2011年</option>
+                </select>
+                <select class="ym-select" id="emonth2">
+                    <option value="0" selected>---</option>
+                    <option value="1">1月</option>
+                    <option value="2">2月</option>
+                    <option value="3">3月</option>
+                    <option value="4">4月</option>
+                    <option value="5">5月</option>
+                    <option value="6">6月</option>
+                    <option value="7">7月</option>
+                    <option value="8">8月</option>
+                    <option value="9">9月</option>
+                    <option value="10">10月</option>
+                    <option value="11">11月</option>
+                    <option value="12">12月</option>
+                </select>
+                <label>まで</label>
+              </div>
+              </div>
+              <div class="checkbox-title">省庁</div>
+              <div class="checkbox-content">
+                <label><input type="checkbox" class="ministry" value="1">内閣府</label><br>
+                <label><input type="checkbox" class="ministry" value="2">総務省</label><br>
+                <label><input type="checkbox" class="ministry" value="3">法務省</label><br>
+                <label><input type="checkbox" class="ministry" value="4">外務省</label><br>
+                <label><input type="checkbox" class="ministry" value="5">財務省</label><br>
+                <label><input type="checkbox" class="ministry" value="6">文部科学省</label><br>
+                <label><input type="checkbox" class="ministry" value="7">厚生労働省</label><br>
+                <label><input type="checkbox" class="ministry" value="8">農林水産省</label><br>
+                <label><input type="checkbox" class="ministry" value="9">経済産業省</label><br>
+                <label><input type="checkbox" class="ministry" value="10">国土交通省</label><br>
+                <label><input type="checkbox" class="ministry" value="11">環境省</label><br>
+                <label><input type="checkbox" class="ministry" value="12">防衛省</label><br>
+                <label><input type="checkbox" class="ministry" value="13">復興庁</label><br>
+                <label><input type="checkbox" class="ministry" value="14">金融庁</label><br>
+              </div>
             </div>
             <input type="search" id="searchWord2" name="" autocomplete="off" placeholder="キーワードを入力">
             <button type="submit" id="submit2"><i class="fas fa-search"></i></button>
@@ -107,7 +235,7 @@
     <div class="contents results">
       <div class="result">
         <h2>検索結果：<span id="numhits"></span>件</h2>
-        <p>期間：指定なし</p>
+        <p>期間：<span id="specified-period"></span></p>
         <p>省庁：<span id="specified-ministries"></span></p>
       </div>
       <div id="cards2">
