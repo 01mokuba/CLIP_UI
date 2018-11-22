@@ -111,7 +111,7 @@ body{
 }
 
 #filter p, #filter2 p{
-  font-size: 1.8vw;
+  font-size: 2vw;
   margin: 0 0.2vw 0 0.6vw;
 }
 
@@ -182,13 +182,13 @@ body{
 
 .contents h2{
   font-family: "GENJ-Heavy";
-  font-size: 28px;
+  font-size: 3vw;
   margin-bottom: 2vh;
 }
 
 .contents p{
   font-family: 'GENJ-Light';
-  font-size: 14px;
+  font-size: 1.2vw;
 }
 
 #cards, #cards2 {
@@ -196,13 +196,12 @@ body{
   display: flex;
   flex-wrap: wrap;
   align-content: space-around;
-  margin-left: -16px;
 }
 
 .card{
   margin: 20px;
-  height: 200px;
-  width: 240px;
+  height: 25vh;
+  width: 280px;
   box-shadow: 1px 1px 2px #999;
   border: solid 0.5px lightgray;
   padding: 3vh 2vw;
@@ -221,7 +220,7 @@ body{
 .card-title{
   display: block;
   font-family: "GENJ-Heavy";
-  font-size:  14px;
+  font-size:  1.3vw;
   height: 70%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -231,12 +230,9 @@ body{
 
 .card-detail{
   font-family: "GENJ-Light";
+  font-size:  1.1vw;
   position: absolute;
   bottom: 3vh;
-}
-
-.card-detail .card-ministry, .card-detail .card-pdate{
-  font-size:  14px;
 }
 
 #header{
@@ -285,7 +281,7 @@ body{
 
 #submit, #submit2{
   font-size: 2.5vw;
-  color: #747474;
+  color: #4285f4;
   font-size: 2.5vw;
   width: 8vw;
   padding-left: 16px;
@@ -297,6 +293,10 @@ body{
 .results{
   position: relative;
   padding-top: 16vh;
+}
+
+.result{
+  margin-bottom: 3vh;
 }
 
 .pagination-wrapper {
@@ -405,13 +405,15 @@ select.ym-select:first-child {
 
   #cards, #cards2{
     flex-direction: column;
-    margin-left: 0;
-    margin-top: 30px;
   }
 
   .card{
     width: 70vw;
     margin: 0 auto 30px;
+  }
+
+  .card-title{
+    font-size: 5.0vw;
   }
 
   #filter p, #filter2 p{
