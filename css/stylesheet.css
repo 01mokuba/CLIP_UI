@@ -377,9 +377,6 @@ select.ym-select:first-child {
 
   .main-contents input[type="search"]{
     font-size: 20px;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
   }
 
   .main-border .mokuba{
