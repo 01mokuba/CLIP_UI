@@ -230,15 +230,6 @@ getResults = function(gte,lte) {
 
 }
 
-escape = function(text) {
-    return text
-          .replace(/&/g, "&amp;")
-          .replace(/</g, "&lt;")
-          .replace(/>/g, "&gt;")
-          .replace(/"/g, "&quot;")
-          .replace(/'/g, "&#039;");
-}
-
 setCard = function(searchWord, result) {
 
     var numhits = result.hits.total;
@@ -251,13 +242,12 @@ setCard = function(searchWord, result) {
         var source = item._source;
         var articleQuery = $(article);
         cards.append(articleQuery);
-        articleQuery.find(".card-title").attr("href", escape(source.page_url));
-        articleQuery.find(".card-title").html(escape(source.title));
-        articleQuery.find(".card-ministry").html(escape(source.ministry_name));
-        articleQuery.find(".card-pdate").html(escape(source.pdate));
+        articleQuery.find(".card-title").attr("href", source.page_url);
+        articleQuery.find(".card-title").html(source.title);
+        articleQuery.find(".card-ministry").html(source.ministry_name);
+        articleQuery.find(".card-pdate").html(source.pdate);
     })
 }
-
 
 setPeriod = function(gte,lte,isDefaultPeriod) {
     var text = ""
